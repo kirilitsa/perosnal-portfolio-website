@@ -1,0 +1,1181 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+::selection {
+    background: #323d52; /* Replace with your desired color */
+     /* Replace with your desired text color */
+}     
+html {
+    font-size: 16px; /* This is typically the default size */
+}
+
+#light {
+    width: 800px; /* Increase the size for a larger radius */
+    height: 800px;
+    background: radial-gradient(circle, 
+    rgba(26, 24, 141, 0.30) 0%,  /* Increase the opacity */
+    rgba(26, 24, 141, 0.25) 10%, 
+    rgba(26, 24, 141, 0.20) 20%, 
+    rgba(26, 24, 141, 0.15) 30%, 
+    rgba(26, 24, 141, 0.10) 40%, 
+    rgba(26, 24, 141, 0.08) 50%, 
+    rgba(26, 24, 141, 0.06) 60%, 
+    rgba(26, 24, 141, 0.04) 70%, 
+    rgba(26, 24, 141, 0.02) 80%, 
+    rgba(26, 24, 141, 0.01) 90%, 
+    rgba(0, 0, 0, 0) 100%); 
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: lighten;
+    z-index: 1000;
+    transition: background 0.2s;
+}
+
+body {
+    background: rgb(16, 25, 75);
+    background: linear-gradient(90deg, rgb(14, 16, 44) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+/*Header Section*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgb(16, 25, 75);
+    background: linear-gradient(90deg, rgb(14, 16, 44) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%); /* Semi-transparent background */
+    color: white;
+    font-family: 'SanFransisco', Arial, sans-serif;
+    z-index: 1000;
+    transition: top 0.3s;
+    padding: 1rem 0;
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+    text-align: center;
+}
+
+header nav ul li a {
+    color: #CCD6F6;
+    text-decoration: none;
+    font-size: 1.125rem; /* Adjust font size as needed */
+}
+
+header nav ul li a:hover {
+    color:#55D8BD
+}
+
+
+/* Additional styling for smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'SanFransiscoLight';
+    src: url(fonts/SF-Pro-Text-Light.otf);
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'SanFransiscoHEAVY';
+    src: url(fonts/SF-Pro-Display-Heavy.otf);
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'SanFransiscoM';
+    src: url(fonts/SF-Pro-Display-Medium.otf);
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'SanFransisco';
+    src: url(fonts/SF-Pro-Display-Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'SFMono';
+    src: url(fonts/FiraMono-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'HalifaxBold';
+    src: url(Halifax\ W03\ Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 45%; }
+}
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #55D8BD; }
+} 
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%); /* Start from beyond the right edge */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* End at its final position */
+      opacity: 1;
+    }
+}
+#main-content {
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 62.5rem;
+    padding: 5rem 1.25rem;
+    gap: 2rem; /* 20px if the base font-size is 16px */
+}
+#intro, #about-me {
+    width: 100%; /* Consistent width for alignment */
+    text-align: left; /* Adjust top margin as needed */
+}
+#intro {
+    margin-top: 11rem;
+}
+
+#intro h1 {
+    color:#CCD6F6;
+    font-family: 'SanFransiscoHEAVY';
+    font-size: 3.02rem;
+    margin-bottom: 20px; /* Space between the heading and paragraph */
+    margin-left: 0; /* Align the left edge of h1 with the paragraph */
+}
+
+.greeting {
+    font-family: 'SFMono';
+    font-size: 18px; /* Adjust as needed */
+    color: #55D8BD; /* Text color */
+    margin-bottom: 10px; /* Small space below the greeting */
+    border-right: .15em solid #55D8BD; /* The caret (cursor) */
+    overflow: hidden; /* Ensures the content is clipped */
+    white-space: nowrap; /* Keeps the content on a single line */
+    width: 0; /* Start with width 0 and let the animation expand it */
+    animation: typing 2s steps(20, end) forwards;
+}
+.greeting::after {
+    content: '';
+    border-right: .15em solid #55D8BD;
+    position: absolute;
+    right: 0;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+
+
+.intro-animation {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#intro .name, #intro .tagline, #intro .cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Defined the animation keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 14ch; } /* Adjust the width according to the length of the text */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #55D8BD; }
+}
+
+
+.name {
+    font-weight: bold;
+    color: #575757; /* Adjust to the color you want for the name */
+    margin-bottom: 30px; /* Space below the name */
+}
+.tagline { 
+    font-family:'SanFransiscoHEAVY';
+    color: #8892B0; /* Adjust to the color you want for the tagline */
+    margin-bottom: 20px; /* Space below the tagline */
+}
+.cta-button {
+    display: inline-block; /* Makes the link behave like a button */
+    background: transparent; /* Transparent background */
+    color: #55D8BD; /* Text color - choose a color that makes the text readable on your background */
+    padding: 10px 20px; /* Padding inside the button */
+    border: 1.5px solid #55D8BD; /* Border color - choose a color that stands out on your background */
+    text-decoration: none; /* Removes underline from the link */
+    font-family:'SFMono';
+    font-size: 14px;
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effects */
+    transition: transform 0.2s ease, box-shadow 0.2s ease
+}
+
+.cta-button:hover {
+    background: transparent; /* Background color on hover - choose a subtle color or keep it transparent */
+    color: #55D8BD; /* Text color on hover - choose a color that contrasts the hover background */
+    border-color: #55D8BD; /* Border color on hover - optional if you want to change the border color on hover */
+    transform: scale(1.02) translate(0, -2px);
+    box-shadow: 10px 10px 0px 0px #55D8BD;
+}
+#about-me {
+    font-family:Arial, Helvetica, sans-serif; /* Center the content and add space below the section */ /* Add padding for spacing inside the section */
+    color: #7582a3; /* Text color */
+}
+.section-title {
+    font-family: 'SanFransiscoM', Arial, sans-serif;
+    position: relative;
+    display: inline-block; /* To contain the size of the pseudo-element to the content */
+    margin-top: 60%;
+    margin-bottom: 20px; /* Space below the section title */
+    font-size: 32px; /* Size of the section title */
+    color: #CCD6F6; /* Color of the section title, adjust as needed */
+    /* Other styles... <div>Icons made from <a href="https://www.onlinewebfonts.com/icon">svg icons</a>is licensed by CC BY 4.0</div>*/
+}
+/*.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Align the line vertically */
+    /*left: calc(100% + 15px); /* Position the line after the text with some spacing */
+    /*width: 3.125rem; /* Initial width of the line */
+    /*height: 0.5px; /* Make the line thinner */
+    /*background-color: #575757; /* Color of the line */
+    /*transition: width 0.3s ease-in-out; /* Smooth transition for the line */
+    /*transform: translateY(-50%); /* Center the line vertically relative to the title */
+
+
+/*.section-title:hover::after {
+    width: 52rem; /* Optional: Increase the length of the line on hover */
+
+.about-description {
+    font-family: 'SanFransiscoM';
+    font-size: 1.125rem; /* Size of the about description text */
+    line-height: 1.6; /* Line height for better readability */
+    max-width: 30rem;
+    margin-top: 1.25rem; /* Space above the about description */
+    padding-bottom: 0rem;
+}
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; /* Center align the image vertically */
+    gap: 25px;
+    padding: 2rem;
+}
+
+#about-me {
+    padding: 0rem;
+    flex-basis: 100%; /* Adjust the width as needed */
+}
+.highlight {
+    color: #55D8BD; /* Change to your preferred color */
+    cursor: pointer; /* Optional: Changes the cursor to a pointer to indicate interactivity */
+    position: relative; /* Required for absolute positioning of the pseudo-element */
+    display: inline-block; /* Ensures the pseudo-element aligns correctly */
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.1px; /* Thickness of the underline */
+    bottom: 0;
+    left: 0;
+    background-color: #55D8BD; /* Color of the underline */
+    transition: width 0.15s ease-in-out; /* Smooth transition for the underline effect */
+    transform: translateY(-6px); /* Position the underline below the text */
+}
+
+.highlight:hover::after {
+    width: 100%; /* Full width on hover */
+}
+#about-me {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #7582a3;
+}
+
+.section-title {
+    font-family: 'SanFransiscoM', Arial, sans-serif;
+    margin-top: 60%;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #CCD6F6;
+}
+
+.about-description {
+    font-family: 'SanFransiscoM';
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 30rem;
+    margin-top: 1.25rem;
+}
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items:center; /* Center the image vertically */
+    gap: 25px;
+    padding: 2rem; /* Add padding for better spacing */
+}
+
+#about-me {
+    flex: 1; /* Take up remaining space */
+}
+
+#image-container {
+    flex-shrink: 0; /* Prevent the image container from shrinking */
+    width: 300px; /* Fixed width for the image container */
+    text-align: center; /* Center align the image within its container */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the image vertically */
+    margin-top:525px;
+    margin-left: 100px;
+}
+
+.profile-image {
+    width: 100%;
+    border-radius: 8px;
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #55D8BD; /* Color of the frame */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+    transform: translateZ(0); /* Initial state for 3D transformation */
+    transition: transform 0.3s ease-in-out;
+    cursor:pointer;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+
+}
+
+.highlight a {
+    color: #55D8BD;
+    text-decoration: none;
+}
+
+.highlight a:hover {
+    text-decoration: underline;
+}
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.highlight a {
+    color: #55D8BD;
+    text-decoration: none;
+}
+
+.highlight a:hover {
+    text-decoration: underline;
+}
+
+#skills {
+    padding: 0px;
+    margin-top: 0rem;
+}
+#skills .section-title {
+    margin-top: 30%; /* Adjust this value as needed */
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.skills-logos {
+    display: flex; /* Align logos in a row */
+    flex-wrap: wrap;
+    justify-content: center; /* Center logos within the container */
+    gap: 2rem; /* Space between logos */
+    width: 100%;
+}
+
+.logo-container {
+    position: relative;
+    flex: 1 1 70px;
+    width: 70px; /* Adjust size of logos */
+    height: 70px; /* Adjust size to match width for a square */
+    margin: 0.5rem;
+    max-width: 70px;
+}
+
+.skill-logo {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.2s ease;
+}
+
+
+.logo-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    background-color: linear-gradient(90deg, rgb(14, 16, 44) 23%, rgba(12,18,32,1) 54%, rgba(15,23,42,1) 100%);
+    color: white;
+    font-size: 16px;
+    font-family: 'SFMono';
+    box-sizing: border-box; /* Include padding in width and height */
+    text-align: center; /* Center align multi-line text */
+}
+
+
+.logo-container:hover .skill-logo {
+    opacity: 0.3;
+}
+
+.logo-container:hover .logo-description {
+    opacity: 1;
+}
+
+#work-experience {
+    padding: 0px;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.experience-entry {
+    display: flex;
+    align-items: flex-start; /* Align the items to the top */
+    gap: 5px; /* Reduced space between date and job details */
+    transition: background-color 0.15s ease;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.experience-entry:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Add background-color on hover */
+}
+
+.experience-entry:hover .job-title {
+    color: #55D8BD; /* Change color on hover */
+}
+.experience-entry .experience-link {
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from parent */
+}
+
+.experience-entry:hover .experience-link {
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.arrow {
+    display: inline-block; /* Allows for transformation */
+    transition: transform 0.2s ease; /* Smooth animation for the arrow */
+    font-size: 14px;
+}
+
+.experience-entry:hover .arrow {
+    transform: translateY(-5px) translateX(5px); /* Arrow animation on hover */
+}
+.date {
+    width: 40%; /* Adjust the width of the date column for closer proximity */
+    text-align: left; /* Align the text to the right */
+    margin-right: 2px; /* Reduced for closer spacing */
+    font-family: 'SanFransisco';
+    color: #7582a3;
+    font-size: 1rem;
+    margin-top: 2.65px;
+}
+
+.job-details {
+    width: 100%; /* Allow job details to take up remaining space */
+    padding-left: 5px; /* Reduced padding for closer alignment */
+    color: #7582a3;
+    margin-top: 0px;
+    font-family: 'SanFransisco';
+}
+
+.job-title {
+    font-size: 1.25rem;
+    color: #CCD6F6; /* Adjust as needed */
+    font-family: 'SanFransiscoLight';
+    position: relatssive;
+}
+
+
+.positions {
+    font-size: 1rem;
+    color: #8892B0; /* Adjust as needed */
+    margin-top: 2px;
+    font-family: 'SanFransisco';
+}
+.job-description {
+    color: #7582a3; /* Adjust as needed */
+    margin-top: 6px;
+    font-family: 'SanFransisco';
+    letter-spacing: 0.05em;
+    width: 90%;
+}
+
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    gap: 10px; /* Space between tags */
+    font-family:'SFMono';
+}
+
+.tags span {
+    background-color: #183149; /* Example background color */
+    color: #55D8BD;; /* Text color */
+    padding: 8px 8px;
+    border-radius: 15px;
+    margin-top: 5px; /* Space above the tags */
+}
+
+/* New Projects Section */
+/* Existing CSS */
+
+/* New Projects Section */
+#projects-section {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Space between projects */
+}
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.project-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0); /* Light gray background for the project details */
+}
+
+
+.project-details {
+    flex: 1;
+    background-color:rgba(255,255,255,0); /* Light gray background for the project details */
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    color: #CCD6F6; /* Adjust as needed */
+    font-family: 'SanFransiscoLight';
+    margin-bottom: 0.5rem;
+}
+.project-details:hover .arrow {
+    transform: translateY(-5px) translateX(5px); /* Arrow animation on hover */
+}
+
+.project-details:hover .project-title {
+    color: #55D8BD; /* Change color on hover */
+}
+.project-entry .project-link {
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from parent */
+}
+
+.project-entry:hover .project-link {
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.project-description {
+    color: #7582a3; /* Adjust as needed */
+    margin-top: 6px;
+    font-family: 'SanFransisco';
+    margin-bottom: 1rem;
+}
+.project-description-box {
+    background-color: rgba(255, 255, 255, 0); /* Darker background for the description box */
+    padding: 1rem;
+    border-radius: 5px;
+    position: relative;
+}
+
+.project-details {
+    gap: 5px; /* Reduced space between date and job details */
+    transition: background-color 0.15s ease;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 90%;
+}
+
+.project-details:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Add background-color on hover */
+}
+
+/*Contact me section*/
+/* Contact Me Section */
+#contact-me {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+    padding: 2rem;
+    color: #CCD6F6;
+    border-radius: 10px;
+}
+
+.contact-description {
+    font-size: 1.125rem;
+    color: #CCD6F6;
+    font-family: 'SanFransiscoLight';
+    margin-bottom: 1.5rem;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #55D8BD;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid #55D8BD;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'SanFransiscoLight';
+    transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effects */
+    transition: transform 0.2s ease, box-shadow 0.2s ease
+}
+
+.contact-button:hover {
+    background: transparent; /* Background color on hover - choose a subtle color or keep it transparent */
+    color: #55D8BD; /* Text color on hover - choose a color that contrasts the hover background */
+    border-color: #55D8BD; /* Border color on hover - optional if you want to change the border color on hover */
+    transform: scale(1.02) translate(0, -2px);
+    box-shadow: 10px 10px 0px 0px #55D8BD;
+}
+
+.resume-link {
+    color: #55D8BD; /* Adjust text color as needed */
+    font-family: 'SFMono';
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding for spacing */
+    border: 1px solid #55D8BD; /* Turquoise outline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px;
+    border-radius: 5px; /* Rounded corners for the button */
+    transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover effects */
+    transition: transform 0.2s ease, box-shadow 0.2s ease
+}
+
+.resume-link:hover {
+    background: transparent; /* Background color on hover - choose a subtle color or keep it transparent */
+    color: #55D8BD; /* Text color on hover - choose a color that contrasts the hover background */
+    border-color: #55D8BD; /* Border color on hover - optional if you want to change the border color on hover */
+    transform: scale(1.02) translate(0, -2px);
+    box-shadow: 10px 10px 0px 0px #55D8BD;
+    }
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .greeting {
+        font-size: 18px; /* Minimum font size for greeting */
+    }
+
+    .intro h1 {
+        font-size: 56vw; /* Minimum font size for name */
+    }
+
+    .tagline {
+        font-size: 2rem; /* Minimum font size for tagline */
+    }
+
+    .cta-button {
+        font-size: 14px; /* Minimum font size for button text */
+        padding: 10px 20px; /* Adjust button padding */
+    }
+}
+
+/* Maximum sizes */
+@media (min-width: 1200px) {
+    .greeting {
+        font-size: 18px; /* Maximum font size for greeting */
+    }
+
+    .name {
+        font-size: 75px; /* Maximum font size for name */
+    }
+
+    .tagline {
+        font-size: 3.02rem; /* Maximum font size for tagline */
+    }
+
+    .cta-button {
+        font-size: 15px; /* Maximum font size for button text */
+        padding: 16px 24px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 600px) {
+    #contact-me {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .contact-description {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0 1rem; /* Add padding for better readability */
+    }
+
+    .contact-button {
+        font-size: 0.875rem; /* Adjust button font size for smaller screens */
+        padding: 0.5rem 1rem; /* Adjust button padding */
+    }
+}
+
+
+/*#main-content, #intro, #about-me, #skills, #image-container, #profile-image, #second-image, #work-experience {
+    border: 2px solid red;
+}
+
+
+#main-content, #intro, #about-me, #skills {
+    outline: 2px solid red;
+    outline-offset: -2px; 
+}
+#image-container {
+    border: 2px solid rgb(55, 116, 185);
+}
+
+/* Loading Screen */
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Header Animation */
+
+#header-nav li {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  #header-nav li.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+/*Fade-In Animation ()*/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-animation {
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
+}
+
+
+
+
+/*PREVENT WEB FROM BREAKING WHEN MINIMIZED*/
+@media (max-width: 600px) {
+    .logo-container {
+        flex: 1 1 50px; /* Flexible width, but at least 50px wide */
+        max-width: 70px; /* Max width to ensure it doesn't get too large */
+        height: 50px; 
+        margin: 0.5rem;
+    }
+    .skill-logo {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+
+/*FIX FOR PROJECT SECTION (MAIN ISSUE FOR STACKING)
+iframe {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Responsive video */
+video {
+    width: 100%;
+    height: auto;
+    max-width: 70%;
+}
+iframe {
+    width: 100%;
+    height: 400px;
+    max-width: 70%;
+}
+
+
+/* Define the fade-in animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation styles to elements with the .animated class */
+.animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animated.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Define the pop-in animation from the right */
+@keyframes popInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animation styles to elements with the .animated class */
+.animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animated.pop-in {
+    opacity: 1;
+    transform: translateX(0);
+    animation: popInFromRight 0.5s ease forwards;
+}
+
+/* Ensuring the image has the same transition effects */
+.profile-image {
+    width: 100%;
+    border-radius: 8px;
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #55D8BD; /* Color of the frame */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #0f172a; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+  
+  #logo {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  svg path {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw 2s linear forwards;
+  }
+  
+  @keyframes draw1 {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+  
+  @keyframes draw2 {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+  
+  @keyframes draw3 {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+  
+  #line1, #line2, #line3 {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+  
+  #line1 {
+    animation: draw1 2s forwards;
+  }
+  
+  #line2 {
+    animation: draw2 2s forwards 1s; /* Starts after line1 completes */
+  }
+  
+  #line3 {
+    animation: draw3 2s forwards 2s; /* Starts after line2 completes */
+  }
+  
+  path {
+    stroke: url(#gradient);
+    filter: drop-shadow(3px 3px 10px rgba(0, 0, 0, 0.2));
+  }
+  
+  @keyframes lineAnimation {
+    from {
+      stroke-dasharray: 0 1000;
+    }
+    to {
+      stroke-dasharray: 1000 0;
+    }
+  }
+  
+  path {
+    animation: lineAnimation 2s ease forwards;
+  }
+  
+  defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  #loading-screen.hidden {
+    display: none;
+}
+
+/*work section animation*/
+@keyframes fadeInUpWork {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.work-entry-animated {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.work-entry-animated.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*Header section example*/
+/* Responsive Header */
+@media (max-width: 1200px) {
+    header {
+        padding: 0.75rem 0;
+    }
+
+    header nav ul li a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0;
+    }
+
+    header nav ul li {
+        margin: 0 0.5rem;
+    }
+
+    header nav ul li a {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.25rem 0;
+        flex-direction: row;
+    }
+
+    header nav ul {
+        flex-direction:row;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    header nav ul li a {
+        font-size: 0.75rem;
+    }
+}
+
+/*Phone Header Menu*/
+#menu-toggle {
+    display: none; /* Hide by default */
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #55D8BD; /* Turquoise color */
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#menu-toggle.active {
+    transform: rotate(90deg); /* Simple rotation animation */
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Responsive Header Styles */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block; /* Show the menu button */
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        display: none; /* Hide the navigation links */
+    }
+    header nav ul.active {
+        display: flex; /* Show navigation links when active */
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li a {
+        font-size: 1rem; /* Smaller font size for very small screens */
+    }
+}
+
+/*About me section for phones*/
+@media (max-width: 600px) {
+    .about-description {
+        font-size: 1rem; /* Smaller font size for phone screens */
+    }
+
+    /* Adjust image position and remove margins */
+    .about-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0; /* Remove gap between elements */
+    }
+
+    #image-container {
+        margin-top: 0; /* Remove top margin */
+        width: 100%; /* Make the image container take full width */
+        text-align: center; /* Center the image within its container */
+        order: 2; /* Ensure the image comes after the about text */
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+    }
+
+    .profile-image {
+        width: 100%;
+        max-width: none; /* Remove max-width to allow full width */
+        height: auto; /* Maintain aspect ratio */
+        border: none; /* Remove border */
+        margin: 0; /* Remove margin */
+        border-radius: 0; /* Remove border radius */
+        margin-right:100px;
+        margin-top:40px;
+    }
+}
